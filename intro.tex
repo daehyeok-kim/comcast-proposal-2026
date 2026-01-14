@@ -1,0 +1,13 @@
+\section{Overview and Vision}
+\label{sec:intro}
+
+Latency-critical edge applications, such as distributed AI inference and training, XR offloading, real-time video analytics, targeted advertising, and cost-effective distribution of live events, are emerging as first-class drivers of demand across network-edge platforms, including content-distribution networks (CDNs), 5G multi-access edge computing (MEC) deployments, and ISP-operated edge infrastructures. These applications impose strict end-to-end Service Level Objectives (SLOs), often in the tens of milliseconds, and are highly sensitive to tail latency. However, today’s edge infrastructures routinely fail to deliver predictable performance under realistic multi-tenant workloads.
+
+Our recent work~\cite{nsdi26-smec} provides concrete evidence that SLO-aware resource management is both necessary and effective at the network edge. 
+Through extensive measurements on commercial MEC deployments across multiple cities and operators, we show that today’s edge platforms—despite low median latency—suffer from severe tail latency and frequent SLO violations due to network and compute contention. Building on these insights, SMEC demonstrates that lightweight, deadline-aware scheduling can improve SLO satisfaction to over 90\% while reducing tail latency by orders of magnitude under realistic multi-tenant workloads. This proposal builds on that foundation and asks a broader question of direct relevance to Comcast:
+
+\begin{taskbox}
+How can ISPs provide predictable, SLO-driven edge services across heterogeneous access networks and increasingly tight latency budgets, without requiring invasive coordination or over-provisioning?
+\end{taskbox}
+
+We propose to develop a network-agnostic, SLO-aware edge computing framework that generalizes across CDN, MEC, and ISP edge deployments. The proposed framework is designed to support both today’s latency-sensitive services (\eg live video analytics and edge AI inference) and emerging applications with tighter and harder constraints, such as cloud AR/VR and interactive XR offloading. The project will deliver a deployable, open-source prototype and concrete design guidance for ISP edge platforms.

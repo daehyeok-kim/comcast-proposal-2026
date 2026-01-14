@@ -1,0 +1,207 @@
+\ProvidesPackage{kim-nsf-macros}
+%\usepackage{palatino}
+\usepackage{times}
+\usepackage{xspace}
+\usepackage{tikz}
+\usepackage{xspace}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+\usepackage{pdfpages}
+\usepackage{algorithm2e,algpseudocode}
+\usepackage{array}
+\usepackage{graphics,enumitem}
+\usepackage{subcaption}
+\usepackage[textfont=it]{caption}
+\usepackage{hyperref}
+% Hyperlinks
+\usepackage{cite,url}
+\hypersetup{
+  colorlinks=true,      % false: boxed links; true: colored links
+  linkcolor=blue,       % color of internal links
+  citecolor=blue,       % color of links to bibliography
+  filecolor=cyan,       % color of file links
+  urlcolor=blue         % color of external links
+}% Font
+% \usepackage{textcomp}
+% \usepackage[sc]{mathpazo}
+% \linespread{1.05} % Palladio needs more leading (space between lines)
+% \usepackage[T1]{fontenc}
+
+ \setlist[itemize]{
+     topsep=.5ex,
+     %leftmargin=1cm,
+     leftmargin=.4cm,
+     itemsep=-.25ex
+ }
+ 
+  \setlist[enumerate]{
+     topsep=.5ex,
+     %leftmargin=1cm,
+     leftmargin=.4cm,
+     itemsep=-.25ex
+ }
+
+% Paragraph formatting/spacing
+\usepackage[compact]{titlesec}
+% \titleformat*{\paragraph}{\scshape}
+\titlespacing*{\section}{0pt}{*1}{*1.5}
+\titlespacing*{\subsection}{0pt}{*1}{*1.5}
+\titlespacing*{\subsubsection}{0pt}{*1}{*1}
+\titlespacing*{\paragraph}{0pt}{*1.5}{*1}
+\setlength{\parskip}{0em}
+
+% Decrease space between bib entries
+\let\oldbibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+  \oldbibliography{#1}%
+  \setlength{\itemsep}{0pt}%
+}
+\def\Snospace~{\S{}}
+\renewcommand*\sectionautorefname{\Snospace}
+\renewcommand*\subsectionautorefname{\Snospace}
+
+\newcommand{\figrule}{\hrule width \hsize height.33pt}
+\newcommand{\coderule}{\figrule\vspace{0.4em}}
+\newcommand{\cmark}{\textcolor{green}{\ding{51}}}%
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}%
+\newcommand{\okmark}{\textcolor{blue}{\textbf{--}}}%
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+\renewcommand{\algorithmautorefname}{Algorithm}
+\renewcommand*{\figureautorefname}{Figure}
+
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+\newcommand*\circledblack[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,fill=black,text=white,inner sep=1pt] (char) {#1};}}
+%%%
+%%% THEOREM / Invariants / etc.
+%%%
+\algnewcommand\algorithmicforeach{\textbf{for each}}
+\algdef{S}[FOR]{ForEach}[1]{\algorithmicforeach\ #1\ \algorithmicdo}
+
+\newcommand{\ie}[0]{\textit{i.e.,}\xspace}
+\newcommand{\eg}[0]{\textit{e.g.,}\xspace}
+\newcommand{\etc}[0]{\textit{etc.,}\xspace}
+\newcommand{\vs}[0]{\textit{vs.}\xspace}
+\newcommand{\etal}[0]{\textit{et al.}\xspace}
+
+\newcommand{\myc}{$\circ$}
+%%%
+%%% COMMENTS / TODOS
+%%%
+\usepackage{ifthen}
+\usepackage{xcolor}
+
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+
+\newcommand{\exclude}[1]{}
+\newcommand{\showComments}{yes}
+\newcommand{\note}[2]{
+\ifthenelse{\equal{\showComments}{yes}}{\noindent\textcolor{#1}{#2}}{} }
+
+%\def\Snospace~{\S{}}
+%\renewcommand*\sectionautorefname{\Snospace}
+%\def\sectionautorefname{\Snospace}
+%\def\subsectionautorefname{\Snospace}
+%\def\subsubsectionautorefname{\Snospace}
+%\def\chapterautorefname{\Snospace}
+
+%%%
+%%% Keeping it tight
+%%%
+
+\newcommand{\tightcaption}[1]{\vspace{-0.5cm}\caption{#1}\vspace{-0.2cm}}
+\newcommand{\tightsubcaption}[1]{\vspace{-0.5cm}\caption{#1}}
+\newcommand{\tightsection}[1]{\vspace{-0.01in}\section{#1}\vspace{-0.05in}}
+\newcommand{\tightsubsection}[1]{\vspace{-0.01in}\subsection{#1}\vspace{-0.05in}}
+\newcommand{\tightsubsubsection}[1]{\vspace{-0.01in}\subsubsection{#1}\vspace{-0.05in}}
+
+\newcommand{\mypara}[1]{\smallskip\noindent{\bf {#1}}~}
+\newcommand{\tightmypara}[1]{\noindent{\bf {#1}}~}
+
+\newcounter{packednmbr}
+
+\newenvironment{packedenumerate}{
+\begin{list}{\thepackednmbr.}{\usecounter{packednmbr}
+\setlength{\itemsep}{0pt}
+\addtolength{\labelwidth}{4pt}
+\setlength{\leftmargin}{12pt}
+\setlength{\listparindent}{\parindent}
+\setlength{\parsep}{3pt}
+\setlength{\topsep}{0pt}}}
+{\end{list}
+}
+\newenvironment{packeditemize}{
+\begin{list}{$\bullet$}{
+\setlength{\itemsep}{0pt}
+\addtolength{\labelwidth}{10pt}
+\setlength{\leftmargin}{12pt}
+\setlength{\listparindent}{\parindent}
+\setlength{\parsep}{2pt}
+\setlength{\topsep}{0pt}}}
+{\end{list}
+}
+
+\newcommand{\V}{\checkmark}
+\newcommand{\N}{\ding{55}}
+\newcommand{\T}{$\bigtriangleup$}
+%\usepackage{tcolorbox}
+\usepackage[many]{tcolorbox}
+
+\definecolor{titlebg}{RGB}{100,22,72}
+
+\newtcolorbox{taskbox}{
+  arc=0pt,
+  outer arc=0pt,
+  colframe=titlebg,
+  colback=titlebg!05,
+  boxrule=0pt,       
+  top=0pt,             % Set top margin
+  bottom=0pt,          % Set bottom margin  
+  overlay unbroken and first={
+    \node[
+      draw=titlebg,
+      fill=titlebg,
+      rotate=270,
+      anchor=north west,
+      text=white,
+      font=\bfseries
+    ]
+  }
+}
+
+\newtcolorbox{tbox}[1][]{
+  breakable,
+  enhanced,
+  arc=0pt,
+  outer arc=0pt,
+  colframe=titlebg,
+  colback=titlebg!05,
+  boxrule=0pt,       
+  top=0.0pt,             % Set top margin
+  bottom=0.0pt,          % Set bottom margin  
+  overlay unbroken and first={
+    \node[
+      draw=titlebg,
+      fill=titlebg,
+      rotate=0,
+      anchor=north west,
+      text=white,
+      font=\bfseries
+    ]
+    at (frame.north west)  
+    {#1};
+  }
+}
+
+
+\newcommand{\dk}[1]{{\note{blue}{[DK: #1]}}}
+\newcommand{\todo}[1]{{\note{red}{[TODO: #1]}}}
+

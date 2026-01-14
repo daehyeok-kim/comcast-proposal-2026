@@ -1,0 +1,51 @@
+\documentclass[10pt]{article}
+\usepackage{palatino}
+%\usepackage{fullpage}
+\usepackage[margin=1in]{geometry} 
+\usepackage{kim-nsf-macros}
+%\usepackage{times}
+\usepackage{pdfpages}
+\begin{document}
+\begin{sloppypar}
+\newcommand{\proj}{\mbox{{Nicmm}}\xspace}
+
+
+% \vspace*{-0.6in}
+
+\begin{center}
+{\Large{\bf GPU-Accelerated Digital Twins for Predictable 5G/6G Edge AI Systems}}
+
+\vspace{0.5em}
+
+{\large {\bf PI:} Daehyeok Kim\\ {\em Assistant Professor, Department of Computer Science, The University of Texas at Austin}} \\
+     %\phantom{\bf PI:}Email: daehyeok@utexas.edu
+     %\hspace{0.5em}Phone: 412-500-3839
+     %\hspace{0.5em} 2317 Speedway, Austin, TX 78712
+\end{center}
+
+\input{abstract}
+%\newpage
+%\pagenumbering{gobble}
+\pagenumbering{arabic}
+%\renewcommand{\thepage} {C - \arabic{page}}
+\setcounter{section}{0}
+\renewcommand{\thesection}{\arabic{section}}
+%%\renewcommand{\thesection}{\Alph{section}}
+\input{intro}
+\input{method}
+\input{results}
+\input{support}
+\end{sloppypar}
+
+%\includepdf[pages=-, pagecommand={\thispagestyle{plain}}]{bio-kim-1pg.pdf}
+
+\newpage
+{%\footnotesize
+\renewcommand{\refname}{References}
+\bibliographystyle{abbrv}
+\bibliography{ref}
+}
+
+
+
+\end{document}

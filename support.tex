@@ -1,0 +1,15 @@
+\section{Project Support Details}
+\label{sec:support}
+
+We request \textbf{four NVIDIA RTX PRO 6000 Server Edition GPUs} to enable both large-scale digital twin simulation and MEC testbed validation.
+
+\mypara{Integrated testbed requirements:} Our research requires tight integration between a 5G SDR testbed and edge GPU servers to validate the digital twin against real-world conditions.
+Remote cloud GPUs cannot be integrated with our private 5G testbed due to network latency, security restrictions, and the inability to achieve sub-millisecond timing synchronization required for accurate MEC validation.
+
+\mypara{Dedicated hardware allocation:} The four RTX PRO GPUs will be allocated as two GPUs for digital twin simulation and two GPUs for 5G testbed validation.
+The digital twin GPUs will simulate thousands of concurrent inference requests across multiple edge servers.
+The testbed GPUs will emulate realistic edge deployments where multiple AI applications compete for GPU resources.
+Each RTX PRO GPU provides 48GB memory and dedicated CUDA cores necessary for accelerating Aerial/Sionna wireless modeling, running concurrent neural network workloads, and executing GPU contention models with high fidelity.
+
+\mypara{Infrastructure compatibility:} We have two {Dell PowerEdge R760 servers} with PCIe Gen5 slots, providing full compatibility with NVIDIA RTX PRO 6000 Server Edition GPUs.
+These systems offer sufficient power (1200W per server) and cooling capacity to host all four requested GPUs.
