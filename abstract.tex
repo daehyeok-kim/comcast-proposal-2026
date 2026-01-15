@@ -1,10 +1,10 @@
 \mypara {Abstract:}
-The network edge, spanning content-distribution networks (CDNs), multi-access edge computing (MEC), and ISP-operated platforms, increasingly hosts latency-critical services such as distributed AI inference, cloud AR/VR, real-time video analytics, targeted advertising, and large-scale live event distribution.
+The network edge, spanning content-distribution networks (CDNs), multi-access edge computing (MEC), and ISP-operated platforms, increasingly hosts latency-critical services such as distributed AI inference, XR offloading, real-time video analytics, and large-scale live event distribution.
 While these applications impose strict end-to-end Service Level Objectives (SLOs), real-world edge deployments frequently violate them due to resource contention, heterogeneous workloads, and the lack of SLO-aware resource management, resulting in tail-latency degradation that undermines user experience.
 
 Our recent work provides empirical evidence through measurements of commercial edge environments that low median latency alone is insufficient: tail latency dominates user experience and drives SLO violations.
 These measurements further demonstrate that lightweight, deadline-aware resource management can substantially improve predictability, achieving over 90\% SLO satisfaction under contention.
 
 This project proposes a network-agnostic, SLO-aware edge computing framework applicable across CDN, MEC, and ISP edge deployments.
-The framework generalizes time-budget estimation and deadline-aware scheduling and extends support to emerging applications with tighter constraints, including cloud AR/VR and interactive XR offloading.
-The outcome will be an open-source, deployable prototype that enables ISPs to deliver predictable low-latency edge services without invasive coordination or excessive over-provisioning.
+The framework generalizes time-budget estimation and deadline-aware scheduling, extending support to emerging applications with tighter constraints including cloud AR/VR and interactive XR offloading.
+The outcome will be an open-source, deployable prototype that enables edge service providers to deliver predictable low-latency services without invasive coordination or excessive over-provisioning.

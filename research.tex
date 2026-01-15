@@ -12,7 +12,7 @@ However, edge platforms must support diverse access technologies including cable
 
 \mypara{Approach:}
 We will design a unified time-budget estimation layer that operates using only end-to-end observable signals at the edge server.
-The system will leverage request and response timing patterns, RTT measurements, and application-layer timing information to infer network latency and compute remaining time budgets.
+The system will leverage request and response timing patterns, TCP RTT measurements, and application-layer timing information to infer network latency and compute remaining time budgets.
 Key technical contributions include:
 
 \begin{packeditemize}
@@ -20,7 +20,7 @@ Key technical contributions include:
 
 \item Adaptive algorithms that handle asymmetric paths and time-varying network conditions typical of residential and mobile access.
 
-\item Validation methodology using traces from multiple access network types to ensure estimation accuracy generalizes across deployment scenarios.
+\item Validation methodology using traces from multiple access network types and/or testbed experiments to ensure estimation accuracy generalizes across deployment scenarios.
 \end{packeditemize}
 
 This abstraction enables edge schedulers to reason about request urgency without visibility into the underlying access network, addressing a key deployment barrier for diverse edge platforms.
@@ -39,7 +39,7 @@ Key technical contributions include:
 \begin{packeditemize}
 \item Deadline-aware scheduling algorithms that reduce tail latency and improve SLO satisfaction under multi-tenant contention.
 
-\item Support for sub-50 ms SLOs required by emerging applications such as interactive XR offloading, where jitter directly impacts user experience.
+\item Support for sub-100 ms SLOs required by emerging applications such as cloud AR/VR and interactive XR offloading, where jitter directly impacts user experience.
 
 \item Resource allocation policies that prevent starvation of best-effort traffic while protecting latency-critical workloads from interference.
 \end{packeditemize}
