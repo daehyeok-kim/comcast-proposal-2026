@@ -1,20 +1,28 @@
 \section{Expected Results and Timeline}
 \label{sec:results}
 
-This project will deliver fundamental insights and practical tools that advance predictable MEC systems:
+This project will deliver practical tools and insights that advance predictable edge computing:
 
 \begin{packeditemize}
-    \item A unified digital twin platform integrating wireless dynamics (via Aerial/Sionna) with GPU-aware edge compute modeling, addressing the gap in end-to-end MEC simulation.
-    \item Comprehensive analysis of MEC unpredictability root causes, quantifying how wireless variability and GPU contention contribute to deadline violations.
-    \item Cross-layer scheduling policies coordinating RAN and edge decisions to improve deadline satisfaction for latency-critical AI workloads.
-    \item Open-source release of validated MEC simulation tools, real-world traces, and scheduling implementations for the research community.
-    \item Publications at top-tier systems and networking conferences such as SIGCOMM, NSDI, and MobiCom.
+    \item Network-agnostic time-budget estimation techniques that work across heterogeneous access networks without requiring RAN-specific coordination.
+    \item Deadline-aware scheduling policies for edge CPU and GPU resources that improve SLO satisfaction under multi-tenant workloads.
+    \item Overload control mechanisms that balance SLO satisfaction, fairness, and resource efficiency during periods of high contention.
+    \item Open-source prototype implementation suitable for deployment on diverse edge platforms (ISP, CDN, MEC), including integration guidelines and performance evaluation tools.
+    \item Comprehensive evaluation using traces from commercial edge deployments, demonstrating improved SLO satisfaction and reduced tail latency compared to existing approaches.
 \end{packeditemize}
 
 \mypara{Timeline (12 months):}
 \begin{packeditemize}
-    \item \textbf{Months 1--3:} Develop unified simulation architecture bridging Aerial/Sionna with GPU models. Implement event-driven synchronization and validate basic wireless-compute coupling.
-    \item \textbf{Months 4--6:} Build detailed GPU contention models with CUDA primitives and adaptive profiling. Release initial integrated digital twin validated against synthetic workloads.
-    \item \textbf{Months 7--9:} Conduct comprehensive validation using our USRP X310-based testbed. Refine models using ground truth measurements and release validated simulation tools.
-    \item \textbf{Months 10--12:} Design and evaluate cross-layer scheduling policies. Conduct large-scale studies demonstrating improved predictability and submit results to top venues.
+    \item \textbf{Months 1--3:} Design and implement network-agnostic time-budget estimation techniques.
+    Develop prototype edge runtime with basic deadline-aware scheduling.
+    Validate time-budget estimation accuracy using collected traces from multiple access network types.
+    \item \textbf{Months 4--6:} Extend edge runtime to support heterogeneous CPU and GPU workloads.
+    Implement multi-tenant scheduling policies with deadline awareness.
+    Conduct initial evaluation using synthetic workloads and edge application traces.
+    \item \textbf{Months 7--9:} Design and implement overload control mechanisms including admission control and early-drop policies.
+    Integrate all components into a cohesive prototype.
+    Conduct comprehensive evaluation using realistic multi-tenant scenarios.
+    \item \textbf{Months 10--12:} Refine prototype based on evaluation results.
+    Prepare open-source release with documentation and deployment guidelines.
+    Conduct final performance evaluation and prepare technical reports and publications.
 \end{packeditemize}

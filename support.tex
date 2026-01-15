@@ -1,15 +1,25 @@
-\section{Project Support Details}
+\section{Project Support and Resources}
 \label{sec:support}
 
-We request \textbf{four NVIDIA RTX PRO 6000 Server Edition GPUs} to enable both large-scale digital twin simulation and MEC testbed validation.
+\subsection{Infrastructure and Testbed}
 
-\mypara{Integrated testbed requirements:} Our research requires tight integration between a 5G SDR testbed and edge GPU servers to validate the digital twin against real-world conditions.
-Remote cloud GPUs cannot be integrated with our private 5G testbed due to network latency, security restrictions, and the inability to achieve sub-millisecond timing synchronization required for accurate MEC validation.
+This research requires access to edge computing infrastructure and representative access network environments to develop and validate the proposed SLO-aware framework.
+We will leverage our existing testbed infrastructure and seek collaboration opportunities for real-world deployment validation.
 
-\mypara{Dedicated hardware allocation:} The four RTX PRO GPUs will be allocated as two GPUs for digital twin simulation and two GPUs for 5G testbed validation.
-The digital twin GPUs will simulate thousands of concurrent inference requests across multiple edge servers.
-The testbed GPUs will emulate realistic edge deployments where multiple AI applications compete for GPU resources.
-Each RTX PRO GPU provides 48GB memory and dedicated CUDA cores necessary for accelerating Aerial/Sionna wireless modeling, running concurrent neural network workloads, and executing GPU contention models with high fidelity.
+\mypara{Edge computing testbed:}
+We have access to edge servers with CPU and GPU resources suitable for emulating ISP edge deployments.
+These systems will host the prototype edge runtime and allow us to evaluate multi-tenant scenarios with realistic workload mixes.
 
-\mypara{Infrastructure compatibility:} We have two {Dell PowerEdge R760 servers} with PCIe Gen5 slots, providing full compatibility with NVIDIA RTX PRO 6000 Server Edition GPUs.
-These systems offer sufficient power (1200W per server) and cooling capacity to host all four requested GPUs.
+\mypara{Access network diversity:}
+To validate network-agnostic time-budget estimation, we require access to traces or testbed environments representing diverse access technologies including cable, Wi-Fi, cellular, and wired connections.
+We will work with Comcast and leverage publicly available datasets where appropriate to ensure the framework generalizes across network types.
+
+\subsection{Collaboration and Deployment Opportunities}
+
+We are interested in collaborating with Comcast to:
+\begin{packeditemize}
+\item Obtain representative workload traces and network characteristics from production edge deployments.
+\item Validate the prototype framework in realistic ISP edge environments.
+\item Identify deployment constraints and integration requirements for production systems.
+\item Explore opportunities for technology transfer and open-source contributions.
+\end{packeditemize}

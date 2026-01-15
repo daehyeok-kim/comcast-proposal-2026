@@ -1,29 +1,33 @@
 \section{Motivation}
 \label{sec:motivation}
 
-\subsection{The Challenge Facing Internet Providers}
+\subsection{Challenges in Network Edge Computing}
 
-Modern edge applications operate under strict end-to-end latency SLOs, often ranging from tens to hundreds of milliseconds. However, real-world deployments consistently fail to meet these guarantees due to:
+Modern edge applications operate under strict end-to-end latency SLOs, often ranging from tens to hundreds of milliseconds.
+However, real-world deployments consistently fail to meet these guarantees due to:
 
-Resource contention at edge compute nodes (CPU/GPU) and access networks.
+\begin{packeditemize}
+\item Resource scarcity by design: edge facilities have limited CPU and GPU capacity compared to cloud data centers, yet must host diverse applications that contend for these resources.
 
-Heterogeneous workloads, where latency-critical and best-effort applications compete for limited resources.
+\item Heterogeneous workloads, where latency-critical and best-effort applications compete for the same limited resources.
 
-SLO-unaware schedulers, which optimize fairness or throughput rather than deadline satisfaction.
+\item SLO-unaware schedulers, which optimize fairness or throughput rather than deadline satisfaction.
 
-Operational fragmentation, where access networks and edge compute are owned and managed by different entities, making coordinated solutions impractical.
+\item Operational complexity: even when access networks and edge compute are owned by the same entity, tight coordination across these layers is operationally challenging and may not be feasible across all deployment scenarios.
+\end{packeditemize}
 
-For ISPs, these issues translate into degraded Quality of Experience (QoE), difficulty offering premium low-latency services, and inefficient over-provisioning to compensate for unpredictability.
-
-
+For edge computing service providers and ISPs, these issues translate into degraded Quality of Experience (QoE), difficulty offering premium low-latency services, and inefficient over-provisioning to compensate for unpredictability.
 
 \subsection{Limitations of Existing Approaches}
+
 Existing approaches fall into three broad categories:
 
-Network-layer or RAN-specific solutions, which require tight coordination with applications or compute platforms and are difficult to deploy in multi-operator environments.
+\begin{packeditemize}
+\item Network-layer or 5G RAN-specific solutions (\eg~\cite{xu2022tutti,arma:mobisys25}), which require tight coordination with applications or compute platforms and are difficult to deploy in multi-operator environments.
 
-Cloud-centric SLO-aware schedulers, which assume stable network latency and react too slowly for edge-scale, millisecond-level deadlines.
+\item Cloud-centric SLO-aware schedulers (\eg~\cite{caladan:osdi20,parties:asplos19}), which assume stable network latency and react too slowly for edge-scale, millisecond-level deadlines.
 
-Application-specific optimizations, which do not generalize across workloads or access technologies.
+\item Application-specific optimizations (\eg~\cite{lin2024fast,caladan:osdi20}), which do not generalize across workloads or access technologies.
+\end{packeditemize}
 
-As demonstrated by our recent work on 5G MEC, even sophisticated SLO-aware designs break down when coordination delays, heterogeneous applications, and compute contention are present.
+As demonstrated by our recent work~\cite{nsdi26-smec}, even well-designed SLO-aware systems face challenges when coordination delays, heterogeneous applications, and compute contention are present.

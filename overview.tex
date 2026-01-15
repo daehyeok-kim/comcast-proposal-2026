@@ -1,0 +1,31 @@
+\section{Overview of Proposed Research}
+\label{sec:overview}
+
+To address these challenges, we propose a network-agnostic, SLO-aware edge computing framework applicable to diverse edge platforms including ISP-operated edge, CDN edge, and MEC deployments.
+The framework will enable predictable, low-latency services across heterogeneous access networks without requiring tight coordination between network and compute layers.
+This proposal pursues three research goals:
+(1) design network-agnostic mechanisms for SLO awareness that work across cable, Wi-Fi, cellular, and wired access networks,
+(2) extend support to emerging applications with sub-50 ms latency constraints, and
+(3) ensure practical deployability through modular, incrementally adoptable components.
+We translate these goals into three tightly scoped research thrusts:
+
+\mypara{Thrust 1: Network-Agnostic Time-Budget Estimation.}
+Build on SMEC's lightweight time-budget estimation while removing reliance on 5G-specific control-plane signals.
+The thrust will develop passive estimation techniques that work across diverse access networks (cable, Wi-Fi, cellular, wired) using only end-to-end observable signals at the edge server.
+
+\mypara{Thrust 2: Deadline-Aware Scheduling for Heterogeneous Edge Resources.}
+Develop scheduling policies for CPU and GPU resources that prioritize requests based on remaining time budgets while maintaining multi-tenant isolation.
+The thrust will extend support to emerging applications with sub-100 ms SLOs, including cloud AR/VR and interactive XR offloading.
+
+\mypara{Thrust 3: Overload Control and SLO-Centric Fairness.}
+Design admission control and early-drop mechanisms that maximize SLO satisfaction during congestion.
+The thrust will implement SLO-centric fairness where protection is based on request urgency and service-tier policies rather than uniform resource allocation.
+
+\mypara{System Architecture.}
+We envision the framework consisting of three modular components:
+(1) a Time Budget Estimator deployed at edge servers that estimates per-request time budgets using passive observation of network timing patterns,
+(2) an Edge Resource Manager that implements deadline-aware scheduling for CPU and GPU resources along with admission control and early-drop policies, and
+(3) a Policy Engine that enables operators to configure service tiers and fairness policies without modifying application code.
+All components will operate without tight coupling to access networks, enabling incremental deployment on existing edge infrastructure across ISPs, CDNs, and other edge platforms.
+
+Section~\ref{sec:research} details the technical approach, challenges, and expected contributions for each thrust.

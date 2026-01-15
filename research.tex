@@ -1,0 +1,68 @@
+\section{Proposed Research}
+\label{sec:research}
+
+This section details the technical approach, key challenges, and expected contributions for each research thrust.
+
+\subsection{Thrust 1: Network-Agnostic Time-Budget Estimation}
+
+\mypara{Challenge:}
+Existing SLO-aware edge systems rely on network-specific mechanisms to estimate per-request time budgets.
+For example, our recent work leverages 5G control-plane signals for time-budget estimation.
+However, edge platforms must support diverse access technologies including cable, Wi-Fi, cellular, and wired connections, none of which provide uniform latency visibility or standardized interfaces for time-budget estimation.
+
+\mypara{Approach:}
+We will design a unified time-budget estimation layer that operates using only end-to-end observable signals at the edge server.
+The system will leverage request and response timing patterns, TCP RTT measurements, and application-layer timing information to infer network latency and compute remaining time budgets.
+Key technical contributions include:
+
+\begin{packeditemize}
+\item Passive estimation techniques that work across heterogeneous access networks without requiring control-plane coordination or network-specific instrumentation.
+
+\item Adaptive algorithms that handle asymmetric paths and time-varying network conditions typical of residential and mobile access.
+
+\item Validation methodology using traces from multiple access network types to ensure estimation accuracy generalizes across deployment scenarios.
+\end{packeditemize}
+
+This abstraction enables edge schedulers to reason about request urgency without visibility into the underlying access network, addressing a key deployment barrier for diverse edge platforms.
+
+\subsection{Thrust 2: Deadline-Aware Scheduling for Heterogeneous Edge Resources}
+
+\mypara{Challenge:}
+Edge platforms host diverse workloads including AI inference, video transcoding, XR rendering, and interactive applications, each with distinct resource requirements and latency constraints.
+Unlike cloud environments with abundant resources, edge platforms must handle bursty workloads and tight deadlines with limited CPU and GPU capacity.
+
+\mypara{Approach:}
+We will develop scheduling policies that prioritize requests based on remaining time budgets while maintaining isolation across tenants and applications.
+The scheduler will extend beyond CPU resources to handle GPU kernels, media processing pipelines, and ML inference workloads.
+Key technical contributions include:
+
+\begin{packeditemize}
+\item Deadline-aware scheduling algorithms that reduce tail latency and improve SLO satisfaction under multi-tenant contention.
+
+\item Support for sub-50 ms SLOs required by emerging applications such as cloud AR/VR and interactive XR offloading, where jitter directly impacts user experience.
+
+\item Resource allocation policies that prevent starvation of best-effort traffic while protecting latency-critical workloads from interference.
+\end{packeditemize}
+
+The scheduler will integrate with standard container runtimes and orchestration frameworks to enable deployment on existing edge infrastructure.
+
+\subsection{Thrust 3: Overload Control and SLO-Centric Fairness}
+
+\mypara{Challenge:}
+During periods of high demand, edge platforms must make intelligent decisions about which requests to serve and which to reject early.
+Traditional fairness metrics based on equal resource sharing are poorly suited to heterogeneous SLO requirements.
+
+\mypara{Approach:}
+We will develop admission control and early-drop mechanisms that maximize SLO satisfaction across the workload mix while ensuring progress for best-effort traffic.
+The system will implement SLO-centric fairness, where protection is based on request urgency and service-tier policies rather than uniform resource allocation.
+Key technical contributions include:
+
+\begin{packeditemize}
+\item Admission control policies that prevent overload by rejecting requests that are unlikely to meet their deadlines, avoiding wasted computation on doomed requests.
+
+\item Early-drop mechanisms that abort in-flight requests when remaining time budgets indicate deadline violations are inevitable.
+
+\item Policy frameworks that allow operators to express service-tier preferences while maintaining fairness across tenants and applications.
+\end{packeditemize}
+
+These mechanisms enable edge service providers to offer differentiated service tiers and maximize revenue-generating traffic during congestion.
