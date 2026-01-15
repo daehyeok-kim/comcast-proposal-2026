@@ -22,10 +22,9 @@ Design admission control and early-drop mechanisms that maximize SLO satisfactio
 The thrust will implement SLO-centric fairness where protection is based on request urgency and service-tier policies rather than uniform resource allocation.
 
 \mypara{System Architecture.}
-We envision the framework consisting of three modular components:
-(1) a Time Budget Estimator deployed at edge servers that estimates per-request time budgets using passive observation of network timing patterns,
-(2) an Edge Resource Manager that implements deadline-aware scheduling for CPU and GPU resources along with admission control and early-drop policies, and
-(3) a Policy Engine that enables operators to configure service tiers and fairness policies without modifying application code.
+We envision the framework consisting of two modular components:
+(1) a Time Budget Estimator deployed at edge servers that estimates per-request time budgets using passive observation of network timing patterns, and
+(2) an Edge Resource Manager that implements deadline-aware scheduling for CPU and GPU resources, admission control, and early-drop policies, with integrated policy interfaces that enable operators to configure service tiers and fairness policies without modifying application code.
 All components will operate without tight coupling to access networks, enabling incremental deployment on existing edge infrastructure across ISPs, CDNs, and other edge platforms.
 
 Section~\ref{sec:research} details the technical approach, challenges, and expected contributions for each thrust.
