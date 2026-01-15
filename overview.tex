@@ -21,10 +21,20 @@ The thrust will extend support to emerging applications with sub-100 ms SLOs, in
 Design admission control and early-drop mechanisms that maximize SLO satisfaction during congestion.
 The thrust will implement SLO-centric fairness where protection is based on request urgency and service-tier policies rather than uniform resource allocation.
 
+\begin{wrapfigure}{r}{.5\textwidth}
+    \centering
+      %\vspace{-1em}
+      \includegraphics[width=0.5\textwidth]{figures/vision.pdf}
+      \vspace{-1.5em}
+      \caption{Proposed Edge Computing Framework.}
+      \label{fig:overview}
+  %\vspace{-1 em}
+  \end{wrapfigure}
+
 \mypara{System Architecture.}
-We envision the framework consisting of two modular components:
-(1) a Time Budget Estimator deployed at edge servers that estimates per-request time budgets using passive observation of network timing patterns, and
-(2) an Edge Resource Manager that implements deadline-aware scheduling for CPU and GPU resources, admission control, and early-drop policies, with integrated policy interfaces that enable operators to configure service tiers and fairness policies without modifying application code.
+We envision the framework consisting of two components (\autoref{fig:overview}):
+(1) a \emph{Time Budget Estimator} deployed at edge servers that estimates per-request time budgets using passive observation of network timing patterns, and
+(2) an \emph{Edge Resource Manager} that implements deadline-aware scheduling for CPU and GPU resources, admission control, and early-drop policies, with integrated policy interfaces that enable operators to configure service tiers and fairness policies without modifying application code.
 All components will operate without tight coupling to access networks, enabling incremental deployment on existing edge infrastructure across ISPs, CDNs, and other edge platforms.
 
 Section~\ref{sec:research} details the technical approach, challenges, and expected contributions for each thrust.

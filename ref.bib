@@ -2324,3 +2324,694 @@ abstract = {5G network slicing allows operators to deploy virtual connectivity s
    month = May,
    year = 2026
 }
+
+@inproceedings{infocom26-pendulum,
+  abbr = {INFOCOM},
+  author = {Juheon Yi and Seokgyeong Shin and Minkyung Jeong and Goodsol Lee and Daehyeok Kim and Youngki Lee},
+  title = {Pendulum: Network-Compute Joint Scheduling for Efficient and Accurate MEC Live Video Analytics},
+  booktitle = {Proceedings of IEEE Information Communications Conference},
+   abstract = {
+We present Pendulum, a live video analytics system with a novel network-compute joint scheduling in mobile edge computing (MEC) architecture.
+In practical scenarios, the resource bottleneck frequently alternates between network (video streaming) and compute (DNN inference) stages due to independent fluctuations in wireless channel and scene content.
+    Prior single-stage scheduling systems suffer from throughput or accuracy fluctuation and resource wastage resulting from over-provisioning.
+To overcome these limitations, we newly leverage the interplay between video bitrate and DNN complexity to design an end-to-end system.
+Pendulum is composed of (i) a resource-efficient network-compute demand curve profiler and (ii) a joint resource scheduler.
+Evaluation with various videos and state-of-the-art DNNs shows that Pendulum achieves up to 0.64 mIoU gain and 1.29× higher throughput than state-of-the-art baselines.
+Pendulum also achieves near-optimal multi-user resource scheduling performance with minimal search overhead, achieving a 25% cost reduction compared to network-compute decoupled scheduling.
+   },
+  month = {May},
+   year = 2026
+}
+
+@inproceedings{ipdps26-omega,
+  abbr = {IPDPS},
+  author = {Geon-Woo Kim and Donghyun Kim and Jeongyoon Moon and Henry Liu and Tarannum Khan and Anand Iyer and Daehyeok Kim and Aditya Akella},
+  title = {Reforge: Low-Latency Distributed GNN Serving with Selective Embedding Recomputation},
+  booktitle = {Proceedings of 40th IEEE International Parallel and Distributed Processing Symposium},
+  abstract = {
+   Graph Neural Networks (GNNs) are widely used for generating expressive node representations in graph datasets.
+   Serving GNNs on large graphs is challenging due to high communication, computation, and memory costs from constructing and executing computation graphs across large neighborhoods.
+    Training-time approximation techniques can reduce these overheads, but they still result in high latency or accuracy loss during serving.
+   We propose Reforge, a system designed to enable low-latency GNN serving for large graphs with minimal accuracy loss through two core ideas.
+   First, Reforge leverages selective recomputation of precomputed embeddings to reuse computation subgraphs, selectively updating only a minority to preserve accuracy.
+   Second, Reforge introduces computation graph parallelism, parallelizing the creation and execution of computation graphs across machines to reduce communication overhead.
+   Evaluations on large graph datasets and GNN models demonstrate that Reforge significantly outperforms current state-of-the-art methods.
+  },
+  month = {May},
+   year = 2026
+}
+
+@inproceedings{hotnets25-policysmith,
+  abbr = {HotNets},
+   author = {Rohit Dwivedula and Divyanshu Saxena and Aditya Akella and Swarat Chaudhuri and Daehyeok Kim},
+   title = {Man-Made Heuristics Are Dead. Long Live Code Generators!},
+  booktitle = {Proceedings of the 24th ACM Workshop on Hot Topics in Networks},
+   abstract = {
+    Policy design for systems controllers has conventionally been a manual process, with domain experts tailoring heuristics for the specific instance under which the policy will be deployed.
+    In this paper, we re-imagine policy design via a novel automated search technique fueled by recent advances in generative models, specifically Large Language Model (LLM)-driven code generation.
+    We outline the design and implementation of PolicySmith, a framework that applies LLMs to synthesize instance-optimal heuristics.
+    We apply PolicySmith to two long-standing systems policies - web caching and congestion control, highlighting the opportunities unraveled by this LLM-driven heuristic search.
+    For caching, PolicySmith discovers heuristics that outperform established baselines on standard open-source traces.
+    For congestion control, we show that PolicySmith can generate safe policies that can directly run inside the Linux kernel.
+   },
+   pdf = {policysmith-hotnets25.pdf},
+   code = {https://github.com/ldos-project/policysmith},
+  month = {Nov},
+   year = 2025
+}
+
+@inproceedings{hotnets25-px,
+  abbr = {HotNets},
+   author = {Junghan Yoon and Youngmin Choi and Juyoung Park and Daehyeok Kim and Changhoon Kim and KyoungSoo Park},
+   title = {Towards Incremental MTU Upgrade for the Internet},
+  booktitle = {Proceedings of the 24th ACM Workshop on Hot Topics in Networks},
+   abstract = {
+    This paper proposes a systematic approach to incrementally enabling large MTUs in the Internet.
+    We demonstrate that increasing the MTU size significantly enhances the performance of both middleboxes and end hosts.
+    To bridge MTU mismatches at network borders, we introduce PacketExpress gateway (PXGW), an MTU-translating gateway that dynamically adjusts packet sizes for cross-traffic.
+    PXGW merges and splits TCP payloads on the fly and tunnels UDP packets, ensuring seamless adaptation.
+    We propose F-PMTUD, a new path MTU discovery algorithm that determines the path MTU within a single round-trip without relying on ICMP.
+    Our preliminary evaluation shows that the PXGW prototype achieves 1.46 Tbps of packet forwarding throughput using only 8 CPU cores.
+    After dynamic conversion, 95% of transmitted TCP packets are 9000 B jumbo frames, indicating that most flows were effectively converted into large segments, thereby demonstrating the system’s efficiency and scalability.
+    We also find that large-MTU packets made available via PXGW enhance end-host performance by up to 2.5×.
+   },
+   pdf = {px-hotnets25.pdf},
+  month = {Nov},
+   year = 2025
+}
+
+@inproceedings{emnlp25-tracellm,
+  abbr = {EMNLP},
+  author = {Donghyun Kim and Ravula, Sriram and Ha, Taemin and Dimakis, Alexandros G and Daehyeok Kim and Akella, Aditya},
+  title = {Large Language Models as Realistic Microservice Trace Generators},
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in Natural Language Processing},
+   abstract = {
+    Workload traces are essential to understand complex computer systems' behavior and manage processing and memory resources.
+    Since real-world traces are hard to obtain, synthetic trace generation is a promising alternative.
+    This paper proposes a first-of-a-kind approach that relies on training a large language model (LLM) to generate synthetic workload traces, specifically microservice call graphs.
+    To capture complex and arbitrary hierarchical structures and implicit constraints in such traces, we show how to fine-tune LLMs to generate recursively, making call graph generation a sequence of easier steps.
+    To further enforce learning constraints in traces and generate uncommon situations, we argue for applying additional instruction tuning steps to align our model with the desired trace features.
+    Our evaluation results show that we can generate diverse realistic traces under various conditions and outperform existing methods in accuracy and validity.
+    We demonstrate that our synthetically generated traces can effectively replace real data to optimize important microservice management tasks.
+    Additionally, our model adapts to downstream trace-related tasks, such as predicting key trace features and infilling missing data.
+  },
+  arxiv = {2502.17439},
+  pdf = {tracellm-emnlp25.pdf},
+  code = {https://github.com/ldos-project/TraceLLM},
+  month = {Nov},
+   year = 2025
+}
+
+@inproceedings{iros25-configbot,
+  abbr = {IROS},
+   author = {Rohit Dwivedula and Sadanand Modak and Aditya Akella and Joydeep Biswas and Daehyeok Kim and Christopher Rossbach},
+   title = {ConfigBot: Adaptive Resource Allocation for Robot Applications in Dynamic Environments},
+   booktitle = {Proceedings of 2025 IEEE/RSJ International Conference on Intelligent Robots and Systems},
+   abstract = {
+The growing use of service robots in dynamic environments requires flexible management of on-board compute resources to optimize the performance of diverse tasks such as navigation, localization, and perception.
+Current robot deployments often rely on static OS configurations and system over-provisioning. 
+However, they are suboptimal because they ignore variations in resource usage, leading to system-wide issues like robot instability or inefficient resource utilization.
+    This paper presents ConfigBot, a novel system designed to adaptively reconfigure robot applications to meet a predefined performance specification by leveraging runtime profiling and automated configuration tuning.
+    Through experiments on multiple real robots, each running a different stack with diverse performance requirements, which could be context-dependent, we illustrate ConfigBot's efficacy in maintaining system stability and optimizing resource allocation.
+    Our findings highlight the promise of automatic system configuration tuning for robot deployments, including adaptation to dynamic changes.
+   },
+  pdf = {configbot-iros25.pdf},
+  code = {https://github.com/ldos-project/configbot},
+   month = {{October}},
+   year = 2025
+}
+
+@inproceedings{mobisys25-arma,
+  abbr = {MobiSys},
+   author = {Juheon Yi and Goodsol Lee and Seokgyeong Shin and Minkyung Jeong and Daehyeok Kim and Youngki Lee},
+   title = {Towards End-to-End Latency Guarantee in MEC Live Video Analytics with App-RAN Mutual Awareness},
+   booktitle = {Proceedings of 23rd ACM International Conference on Mobile Systems, Applications, and Services},
+   abstract = {
+    Mobile live video analytics apps require end-to-end latency guarantee for responsiveness and immersiveness.
+    Achieving consistent low latency is challenging due to complex fluctuations of wireless channel and scene complexity; for example, latency SLO satisfaction rate drops to as low as 26% in commercial 5G MEC platforms.
+Prior works mostly focus on either app-only (bitrate, DNN adaptation, or GPU allocation) or RAN-only (radio resource allocation) scheduling, with mutual ignorance of the other side resulting in mismatched scheduling decisions and frequent SLO violations.
+Coordinating the two schedulers is also challenging, as they are run separately by network and cloud operators with disjoint control.
+We present ARMA, an end-to-end live video analytics system with app-RAN mutual-awareness for high end-to-end latency SLO satisfaction in MEC.
+We design a mutually-aware decoupled scheduling mechanism on top of RAN Intelligent Controller (RIC) in Open-RAN architecture that fosters cooperative interaction between the two operators' schedulers while preserving operational proprietaries.
+    We prototype an Open RAN-enabled 5G MEC testbed and evaluate ARMA, showing that it achieves 97% SLO satisfaction rate.
+   },
+   pdf = {arma-mobisys25.pdf},
+   month = {{June}},
+   year = 2025
+}
+
+@inproceedings{nsdi25-alkali,
+  abbr = {NSDI},
+   author = {Jiaxin Lin and Zhiyuan Guo and Mihir Shah and Tao Ji and Yiying Zhang and Daehyeok Kim and Aditya Akella},
+   title = {Enabling Portable and High-Performance SmartNIC Programs with Alkali},
+  booktitle = {Proceedings of 22nd USENIX Symposium on Networked Systems Design and Implementation},
+   abstract = {
+    Emerging SmartNICs, from different vendors or generations, exhibit substantial differences in hardware parallelism and memory interconnects.
+    These variations make porting programs across NICs complex and time-consuming, requiring programmers to refactor code for performance per NIC’s characteristics.
+    We argue that an ideal SmartNIC compilation framework should allow developers to write target-independent programs, with the compiler managing cross-NIC porting and performance optimization.
+    We present Alkali, which achieves this by proposing a new intermediate representation for building flexible compiler infrastructure for multiple NIC targets and developing a new iterative parallelism optimization algorithm that automatically ports and parallelizes the input programs based on the target NIC’s hardware characteristics.
+    Experiments across NIC applications show that Alkali enables developers to write portable, high-performance NIC programs.
+    Our compiler optimization passes can automatically port these programs and make them run efficiently across all targets, achieving performance within 9.8% of hand-tuned expert implementations.
+   },
+   pdf = {alkali-nsdi25.pdf},
+  code = {https://github.com/utnslab/Alkali},
+   month = {{April}},
+   year = 2025
+}
+
+@inproceedings{sec-fronthaul,
+  abbr = {Usenix Security},
+  author = {Jiarong Xing and Sophia Yoo and Xenofon Foukas and Daehyeok Kim and Michael K. Reiter},
+  title = {On the Criticality of Integrity Protection in 5G Fronthaul Networks},
+   booktitle = {Proceedings of 33rd USENIX Security Symposium},
+   abstract = {
+    The modern 5G fronthaul, connecting base stations to radio units in cellular networks, is designed for microsecond-level performance using Ethernet-based protocols.
+    Due to perceived performance overheads and misconceptions about the risk and impact of attacks, integrity protection is not mandatory in the 5G fronthaul standards.
+    We show how vulnerabilities from the lack of protection can be exploited, making attacks easier and more powerful.
+    We present a novel class of powerful attacks and traditional attacks, both fully launched from software over open packet-based interfaces, to cause degradation or denial-of-service to users over large regions.
+    Our attacks do not require a physical radio presence or signal-based mechanisms, do not crash radios, and are highly severe, impacting multiple cells.
+    We demonstrate the impact in an end-to-end manner on a commercial-grade, multi-cell 5G testbed, showing adversaries can degrade user performance by more than 80%, block select users from the cell permanently, or generate signaling storms of more than 2500 messages per minute with just two compromised cells and four users.
+    We present analysis of countermeasures that meet strict fronthaul performance requirements.
+},
+   pdf = {5gfronthaul-security24.pdf},
+   month = {{August}},
+  year = 2024
+}
+
+@inproceedings{mlsys23-fmos,
+  abbr = {MLSys@NeurIPS},
+  author = {Divyanshu Saxena and Nihal Sharma and Donghyun Kim and Rohit Dwivedula and Jiayi Chen and Chenxi Yang and Sriram Ravula and Zichao Hu and Aditya Akella and Sebastian Angel and Joydeep Biswas and Swarat Chaudhuri and Isil Dillig and Alex Dimakis and P. Brighten Godfrey and Daehyeok Kim and Chris Rossbach and Gang Wang},
+  title = {On a Foundation Model for Operating Systems},
+   booktitle = {Workshop on ML for Systems at NeurIPS},
+   abstract = {
+    This paper lays down the research agenda for a domain-specific foundation model for operating systems (OSes).
+    Our case revolves around the observations that several OS components, such as CPU, memory, and network subsystems, are interrelated, and OS traces offer the ideal dataset for a foundation model to grasp the intricacies of diverse OS components and their behaviors.
+    We discuss several possibilities, from using foundation models as policy agents to employing them as generators and predictors to assist OS control algorithms.
+    We hope this paper spurs further research into OS foundation models and the next generation of operating systems for the evolving computing landscape.
+},
+   pdf = {https://arxiv.org/pdf/2312.07813.pdf},
+   month = {{December}},
+  year = 2023
+}
+
+@inproceedings{micro23-lognic,
+  abbr = {MICRO},
+   author = {Zerui Guo and Jiaxin Lin and Yuebin Bai and Daehyeok Kim and Michael Swift and Aditya Akella and Ming Liu},
+  title = {LogNIC: A High-Level Performance Model for SmartNICs},
+   booktitle = {Proceedings of 56th IEEE/ACM International Symposium on Microarchitecture},
+   abstract = {
+    SmartNICs provide in-network computing capabilities in today’s data centers, benefiting a range of applications.
+    Efficient SmartNIC-assisted solutions require programmers to understand SmartNIC architecture, refactor application logic, and relate executions to traffic.
+    A high-level SmartNIC performance model can decouple hardware from its offloaded software, simplifying development.
+    However, prior models cannot dissect the complexity of SmartNIC-offloaded programs, capture the nondeterministic computation and I/O overlap, or diverse traffic profiles.
+    LogNIC systematically analyzes the performance of a SmartNIC-offloaded program using a packet-centric approach, examining packet traversal over heterogeneous domains, interconnects, and memory subsystems.
+    It abstracts device details, represents programs as execution graphs, retains configurable parameters, and generates latency/throughput estimates for a given traffic profile.
+    Extensions handle multi-tenancy, traffic interleaving, and accelerator peculiarity.
+    Our evaluations show LogNIC estimates performance bounds, explores software optimization strategies, and provides guidelines for hardware designs.
+},
+   pdf = {lognic-micro23.pdf},
+   month = {{October}},
+  year = 2023
+}
+
+@inproceedings{mobicom23-atlas,
+  abbr = {MobiCom},
+  author = {Jiarong Xing and Junzhi Gong and Xenofon Foukas and Anuj Kalia and Daehyeok Kim and Manikanta Kotaru},
+  title = {Enabling Resilience in Virtualized RANs with Atlas},
+   booktitle = {Proceedings of 29th ACM International Conference on Mobile Computing and Networking},
+   abstract = {
+    Virtualized radio access networks (vRANs) run RAN processing on commodity servers, replacing proprietary hardware.
+    The DU component has real-time deadlines and a black-box nature, making resilience features like upgrades and failover challenging.
+    These properties prevent use of techniques like VM migration or state replication.
+    Atlas is the first system providing resilience for the DU by repurposing existing wireless resilience mechanisms—handovers and cell reselection—to provide software resilience.
+    For upgrades, we serve cells from both old and new DUs via the same radio, using handovers to migrate user devices.
+    For failures, we identify deficiencies in RAN protocols that disrupt reselection and eliminate them with a middlebox between the DU and higher layers.
+    Evaluation on a 5G vRAN testbed shows Atlas has minimal connectivity disruption during resilience events, with low overhead.
+},
+   pdf = {atlas-mobicom23.pdf},
+   month = {{October}},
+  year = 2023
+}
+
+@inproceedings{sigcomm23-slingshot,
+  abbr = {SIGCOMM},
+   author = {Nikita Lazarev and Tao Ji and Anuj Kalia and Daehyeok Kim and Ilias Marinos and Francis Y. Yan and Christina Delimitrou and Zhiru Zhang and Aditya Akella},
+  title = {Resilient Baseband Processing in Virtualized RANs with Slingshot},
+   booktitle = {Proceedings of ACM SIGCOMM conference},
+   abstract = {
+    Virtualized radio access networks (vRANs) are replacing specialized RAN hardware with commodity servers.
+    Today’s vRANs lack resilience, as there is no support for failover or upgrades without long interruption.
+    Enabling these features is challenging due to real-time latency and black-box nature.
+    Slingshot is a new system providing transparent resilience for the vRAN physical layer (PHY) using real-time workload migration, fast protocol middleboxes, and real-time failure detection.
+    A key insight is to treat disruptions like regular wireless impairments and use the cellular network’s resilience.
+    Experiments with a 5G vRAN testbed show Slingshot handles PHY failover with no disruption to video conferencing, under 110 ms to TCP, and enables zero-downtime upgrades.
+},
+   pdf = {slingshot-sigcomm23.pdf},
+   month = {{September}},
+  year = 2023
+}
+
+@inproceedings{nsdi23-exoplane,
+  abbr = {NSDI},
+   author = {Daehyeok Kim and Vyas Sekar and Srinivasan Seshan},
+  title = {ExoPlane: An Operating System for On-Rack Switch Resource Augmentation},
+  booktitle = {Proceedings of 20th USENIX Symposium on Networked Systems Design and Implementation},
+  abstract = {
+    The promise of in-network computing remains unrealized in practice, as serving concurrent stateful applications on a programmable switch is challenging due to limited on-chip resources.
+    We argue for an on-rack switch resource augmentation architecture that augments a switch with other programmable network hardware, such as smart NICs, on the same rack.
+    We design and implement ExoPlane, an operating system supporting concurrent applications via pragmatic resource augmentation.
+    ExoPlane includes a practical runtime operating model and state abstraction to manage application state correctly across devices with minimal performance and resource overheads.
+    Our evaluation shows ExoPlane provides low latency, scalable throughput, and fast failover, achieving these with small overhead and minimal application changes.
+  },
+   pdf = {exoplane-nsdi23.pdf},
+  slides = {exoplane-nsdi23-slides.pdf},
+  talk = {https://youtu.be/6dkKzGJe13g},
+   month = {{April}},
+   year = 2023
+}
+
+@inproceedings{nsdi23-sketchovsky,
+  abbr = {NSDI},
+  author = {Hun Namkung and Zaoxing Liu and Daehyeok Kim and Vyas Sekar and Peter Steenkiste},
+  title = {Sketchovsky: Enabling Ensembles of Sketches on Programmable Switches},
+  booktitle = {Proceedings of 20th USENIX Symposium on Networked Systems Design and Implementation},
+  abstract = {
+    Network operators need to run diverse measurement tasks on switches for traffic engineering or anomaly detection.
+    Prior work considers only running a single sketch, lacking efficient support for ensembles.
+    This work presents the design and implementation of Sketchovsky, a cross-sketch optimization and composition framework.
+    We identify five cross-sketch optimization building blocks to reduce critical hardware resources.
+    Efficient heuristics select and apply these blocks for arbitrary ensembles.
+    Sketchovsky automatically generates composed code for the hardware compiler.
+    Evaluation shows Sketchovsky makes ensembles up to 18 sketches feasible, reducing up to 45% of critical hardware resources.
+  },
+   pdf = {sketchovsky-nsdi23.pdf},
+  code = {https://github.com/Sketchovsky},
+   month = {{April}},
+   year = 2023
+}
+
+@inproceedings{sosr22-synapse,
+  abbr = {SOSR},
+   author = {Francisco Pereira and Gonçalo Matos and Hugo Sadok and Daehyeok Kim and Ruben Martins and Justine Sherry and Fernando Ramos and Luis Pedrosa},
+   title = {Automatic Generation of Network Function Accelerators Using Component-Based Synthesis},
+   booktitle = {Proceedings of ACM Symposium on SDN Research},
+  abstract = {
+    Designing networked systems that exploit heterogeneous dataplanes—such as splitting processing between a PISA switch and x86 CPUs—can improve performance and efficiency.
+    Programming multiple hardware targets is challenging because of platform-specific languages.
+    Existing write-once, run-anywhere compilers cannot fully tune NFs for performance across different targets.
+    We explore compiler ideas to exhaustively search for different hardware mappings, tunable for objectives like minimizing memory or maximizing throughput.
+    Our prototype SyNAPSE uses component-based synthesis, supporting x86 and Tofino platforms.
+    Compared to a baseline compiler, SyNAPSE finds thousands of deployment choices, including options reducing controller traffic by an order of magnitude, or halving memory use.
+  },
+  pdf = {synapse-sosr22.pdf},
+   month = {{October}},
+   year = 2022,
+  selected = {false}
+}
+
+@inproceedings{nsdi22-sketchlib,
+  abbr = {NSDI},
+  author = {Hun Namkung and Zaoxing Liu and Daehyeok Kim and Vyas Sekar and Peter Steenkiste},
+  title = {SketchLib: Enabling Efficient Sketch-based Monitoring on Programmable Switches},
+  booktitle = {Proceedings of 19th USENIX Symposium on Networked Systems Design and Implementation},
+   abstract = {
+    Sketching algorithms provide accurate network measurement with low resources.
+    Programmable switches are attractive for such sketches, but current hardware implementations are inefficient or infeasible.
+    Our contributions: (1) systematic analysis of bottlenecks of hardware sketches, (2) practical, correct-by-construction optimization techniques, (3) SketchLib, an easy-to-use library to help developers efficiently implement sketches in hardware.
+    Evaluation on state-of-the-art sketches shows SketchLib reduces hardware resource footprint up to 96% without impacting fidelity.
+   },
+  pdf = {sketchlib-nsdi22.pdf},
+  code = {https://github.com/SketchLib},
+   month = {{April}},
+   year = 2022,
+  selected = {false}
+}
+
+@inproceedings{nsdi22-swish,
+  abbr = {NSDI},
+  author = {Lior Zeno and Dan R. K. Ports and Jacob Nelson and Daehyeok Kim and Shir Landau Feibish and Idit Keidar and Arik Rinberg and Alon Rashelbach and Igor De-Paula and Mark Silberstein},
+   title = {SwiSh: Distributed Shared State Abstractions for Programmable Switches},
+  booktitle = {Proceedings of 19th USENIX Symposium on Networked Systems Design and Implementation},
+  abstract = {
+    SwiSh is a distributed shared state management layer for data-plane P4 programs.
+    It enables running scalable stateful distributed network functions entirely in the data-plane.
+    Several shared variable schemes differ in consistency, performance, and in-switch implementation complexity.
+    We introduce the Strong Delayed-Writes (SDW) protocol, which offers consistent snapshots of shared data-plane objects with strong linearizability, enabling distributed concurrent sketches with precise error bounds.
+    We implement strong, eventual, and SDW consistency protocols in Tofino switches, and compare them in microbenchmarks and network functions (NAT, DDoS detector, and rate limiter).
+    Distributed state management in the data plane is practical and outperforms centralized solutions by up to four orders of magnitude in update throughput and replication latency.
+  },
+  pdf = {swish-nsdi22.pdf},
+   month = {{April}},
+   year = 2022,
+  selected = {false}
+}
+
+@article{phdthesis,
+  abbr = {PhD Thesis},
+  author = {Daehyeok Kim},
+  title = {Towards Elastic and Resilient In-Network Computing},
+  journal = {PhD Thesis, Carnegie Mellon University, Computer Science Department},
+  abstract = {
+    Advances in programmable networking hardware (switches and smart NICs) create a new in-network computing paradigm.
+    This paradigm allows functionality typically served by servers or proprietary devices, from middleboxes to distributed system components, to be performed in the network.
+    The demand for higher performance and programmable hardware has driven in-network computing.
+    However, we observe a gap between current capabilities and evolving application demands—specifically, in-network computing lacks resource elasticity and fault resiliency, limiting its potential.
+    Elasticity addresses the lack of support for multi-application, scalable deployment models.
+    Fault resiliency is critical for managing failures, but challenging to enable on networking devices due to low-level abstractions, hardware constraints, heterogeneity, and workload.
+    We argue that high-level abstractions and runtimes that leverage compute and memory resources across device types can enable elasticity and resiliency without hardware changes.
+    Device resource augmentation is the key enabler, as we show via three systems—TEA, ExoPlane, and RedPlane—which support elastic memory, elastic compute/memory, and fault resiliency, respectively.
+    Each system provides an abstraction, programming APIs, and a runtime.
+    Prototypes and evaluation show that developers can enable elasticity and resiliency without worrying about underlying complexity.
+  },
+  pdf = {cmu-phd-thesis.pdf},
+  month = {{November}},
+  year = 2021,
+  selected = {false}
+}
+
+@article{tr21-dp,
+  abbr = {Tech Report},
+  author = {Daehyeok Kim and Nikita Lazarev and Tommy Tracy and Farzana Siddique and Hun Namkung and James C. Hoe and Vyas Sekar and Kevin Skadron and Zhiru Zhang and Srinivasan Seshan},
+  title = {A Roadmap for Enabling a Future-Proof In-Network Computing Data Plane Ecosystem},
+  journal = {arXiv preprint arXiv:2111.04563},
+   abstract = {
+    As in-network computing vision matures, we see two evolutionary trends: richer applications requiring more than programmable ASICs, and the emergence of diverse data plane technologies.
+    Point solutions exist, but ecosystem-level disconnects persist (e.g., application refactoring, missing guidelines, lack of holistic runtimes).
+    We use a simple application–data plane combination to highlight these disconnects.
+    We sketch a high-level roadmap and guidelines for building a "future-proof" data plane ecosystem.
+},
+   pdf = {https://arxiv.org/pdf/2111.04563.pdf},
+  month = {{October}},
+  year = 2021,
+  selected = {false}
+}
+
+@inproceedings{sigcomm21-redplane,
+  abbr = {SIGCOMM},
+  author = {Daehyeok Kim and Jacob Nelson and Dan R. K. Ports and Vyas Sekar and Srinivasan Seshan},
+   title = {RedPlane: Enabling Fault-Tolerant Stateful In-Switch Applications},
+   booktitle = {Proceedings of ACM SIGCOMM conference},
+  abstract = {
+    Running datacenter functions (e.g., NATs, load balancers, monitoring) on programmable switches has shown performance benefit, but key fault tolerance is missing.
+    Since networks are no longer stateless, endpoint-only recovery does not suffice.
+    We design and implement RedPlane, a fault-tolerant state store for in-switch applications, providing consistent state access even after switch failure or rerouting.
+    We address challenges for a practical, provably correct replication protocol and implementation in the switch data plane.
+    Evaluation shows RedPlane adds negligible overhead and enables rapid recovery.
+  },
+  pdf = {redplane-sigcomm21.pdf},
+  slides = {redplane-sigcomm21-slides.pdf},
+  talk = {https://youtu.be/EVbm_JiOeGw},
+  talk_live = {https://youtu.be/GA7XAHBEKwo?t=2909},
+  review = {redplane-public-review.pdf},
+  code = {https://github.com/daehyeok-kim/redplane-public},
+   month = {{August}},
+   year = 2021,
+  selected = {true}
+}
+
+@inproceedings{sosr21-telemetry,
+  abbr = {SOSR},
+  author = {Hun Namkung and Daehyeok Kim and Zaoxing Liu and Vyas Sekar and Peter Steenkiste},
+  title = {Telemetry Retrieval Inaccuracy in Programmable Switches: Analysis and Recommendations},
+  booktitle = {Proceedings of ACM Symposium on SDN Research},
+   abstract = {
+    Sketching algorithms are attractive for telemetry on programmable hardware switches due to accuracy guarantees and compact data structures.
+    In practice, their implementations can have large (up to 94x) accuracy drops versus theory.
+    Delays from pulling and resetting data plane state induce degradation.
+    We design solutions to reduce these delays and almost eliminate inaccuracy in existing workflows.
+  },
+  pdf = {telemetry-sosr21.pdf},
+   month = {{July}},
+   year = 2021,
+  selected = {false}
+}
+
+@article{tr20-scentific,
+  abbr = {Tech Report},
+   author = {Daehyeok Kim and Ankush Jain and Zaoxing Liu and George Amvrosiadis and Damian Hazen and Bradley Settlemyer and Vyas Sekar},
+   title = {Unleashing In-network Computing on Scientific Workloads},
+  journal = {arXiv preprint arXiv:2009.02457},
+  abstract = {
+    In-network computing can benefit datacenter applications; we explore how it may help scientific workloads in HPC.
+    Analyzing HPC applications, we find opportunities and challenges for in-network acceleration.
+    The main obstacle is the dynamic and demanding nature of scientific workloads, making open-loop, feedback-lacking in-network techniques ill-suited.
+    We present NSinC, an architecture providing closed-loop runtime feedback for in-network acceleration in scientific workloads.
+    We outline challenges and a preliminary design for such acceleration.
+  },
+   pdf = {https://arxiv.org/abs/2009.02457},
+  month = {{September}},
+  year = 2020,
+  selected = {false}
+}
+
+@inproceedings{nsdi20-etalon,
+  abbr = {NSDI},
+  author = {Matthew Mukerjee and Christopher Canel and Weiyang Wang and Daehyeok Kim and Srinivasan Seshan and Alex C. Snoeren},
+  title = {Adapting TCP for Reconfigurable Datacenter Networks},
+  booktitle = {Proceedings of 17th USENIX Symposium on Networked Systems Design and Implementation},
+  abstract = {
+    Reconfigurable datacenter networks (RDCNs) have traditional packet switches augmented with high-bandwidth reconfigurable circuits, assigned to rack pairs per schedule.
+    TCP flows must ramp up sending rates fast when circuits become available.
+    Past TCP variants perform well for ms-scale reconfiguration, but modern RDCNs reconfigure in 20 μs and have short configuration epochs.
+    Existing TCP variants cannot ramp quickly enough.
+    We address this by (1) in-network output queue resizing to prebuffer packets and (2) endpoint adjustment of the congestion window (cwnd) using explicit circuit feedback.
+    Using our RDCN emulator Etalon, we show that combining these increases circuit utilization by 1.91x with only a 1.20x latency increase.
+   },
+   pdf = {etalon-nsdi20.pdf},
+  slides = {etalon-nsdi20-slides.pdf},
+  talk_live = {https://youtu.be/JX-1KpLVgbA},
+   month = {{February}},
+   year = 2020
+}
+
+@inproceedings{nsdi19-freeflow,
+  abbr = {NSDI},
+  author = {Daehyeok Kim and Tianlong Yu and Hongqiang Harry Liu and Yibo Zhu and Jitu Padhye and Shachar Raindel and Chuanxiong Guo and Vyas Sekar and Srinivasan Seshan},
+  title = {FreeFlow: Software-based Virtual RDMA Networking for Containerized Clouds},
+  booktitle = {Proceedings of 16th USENIX Symposium on Networked Systems Design and Implementation},
+  abstract = {
+    Large-scale cloud applications are using containerization for efficiency and isolation.
+    Data-intensive apps increasingly adopt RDMA for high networking performance.
+    There is an inevitable collision between these.
+    We present FreeFlow, a software-based RDMA virtualization framework for container clouds, using commodity RDMA NICs.
+    FreeFlow meets cloud requirements (isolation, portability, controllability) and is transparent to applications.
+    It provides performance close to bare-metal RDMA with low CPU overhead.
+    With TensorFlow and Spark, FreeFlow gives nearly the same application performance as bare-metal.
+   },
+   pdf = {freeflow-nsdi19.pdf},
+  slides = {freeflow-nsdi19-slides.pdf},
+  talk_live = {https://youtu.be/y7kisw4Ey-w},
+   month = {{February}},
+   year = 2019,
+  selected = {true}
+}
+
+@inproceedings{hotnets18-switch_memory,
+  abbr = {HotNets},
+  author = {Daehyeok Kim and Yibo Zhu and Changhoon Kim and Jeongkeun Lee and Srinivasan Seshan},
+  title = {Generic External Memory for Switch Data Planes},
+  booktitle = {Proceedings of the 17th ACM Workshop on Hot Topics in Networks (HotNets)},
+  abstract = {
+    Switches are attractive for networking applications (e.g., load balancing, virtual switching) because of their location and high processing rate.
+    Advances in programmable switch ASICs open opportunities for offloading application logic, but limited switch memory remains a challenge.
+    We envision enabling switches to access remote memory from data planes, improving performance for many applications.
+    We design three remote memory primitives using RDMA operations and demonstrate feasibility using a prototype.
+   },
+   pdf = {gem-hotnets18.pdf},
+  slides = {gem-hotnets18-slides.pdf},
+  talk_live = {https://youtu.be/A0aHVyvKWqw},
+   month = {{November}},
+   year = 2018
+}
+
+@inproceedings{sigcomm18-hyperloop,
+  abbr = {SIGCOMM},
+  author = {Daehyeok Kim and Amirsaman Memaripour and Anirudh Badam and Yibo Zhu and Hongqiang Harry Liu and Jitu Padhye and Shachar Raindel and Steven Swanson and Vyas Sekar and Srinivasan Seshan},
+  title = {HyperLoop: Group-Based NIC-Offloading to Accelerate Replicated Transactions in Multi-Tenant Storage Systems},
+  booktitle = {Proceedings of ACM SIGCOMM conference},
+  abstract = {
+    Data center storage systems perform replicated transactions for availability and integrity, but still face high tail latency.
+    The root problem is CPU use in the critical path.
+    HyperLoop removes CPU from the critical path by offloading replicated transactions to RDMA NICs, using non-volatile memory for storage.
+    We develop NIC offloading primitives that provide memory operations and guarantee ACID properties, all without CPU.
+    Popular storage applications are easily optimized using the primitives; evaluation shows HyperLoop can reduce 99th percentile latency by about 800x, with near 0% CPU consumption on replicas.
+   },
+   pdf = {hyperloop-sigcomm18.pdf},
+  slides = {hyperloop-sigcomm18-slides.pptx},
+  talk_live = {https://youtu.be/vQCNeMxCdZE?t=385},
+   month = {{August}},
+   year = 2018, 
+  selected = {true}
+}
+
+@inproceedings{ndss16-mobilead,
+  abbr = {NDSS},
+  author = {Sooel Son and Daehyeok Kim and Vitaly Shmatikov},
+  title = {What Mobile Ads Know About Mobile Users},
+  booktitle = {Proceedings of 23rd Network and Distributed System Security Symposium},
+  abstract = {
+    We analyze popular Android advertising libraries to see how they protect users from malicious ads.
+    Most separate ad privileges from the host app using dedicated browser instances and the same origin policy.
+    However, malicious ads can infer sensitive information by accessing external storage, used for media-rich ads.
+    Even though ads can't read other apps' files, they can learn if a file exists, which can leak sensitive data (e.g., prescription queries).
+    We conclude with recommendations for better ad protection.
+  },
+  pdf = {mobilead-ndss16.pdf},
+  slides = {mobilead-ndss16-slides.pdf},
+   month = {{February}},
+   year = 2016 
+}
+
+@inproceedings{ndss16-flexdroid,
+  abbr = {NDSS},
+  author = {Jaebaek Seo and Daehyeok Kim and Donghyun Cho and Taesoo Kim and Insik Shin},
+  title = {FlexDroid: Enforcing In-App Privilege Separation in Android},
+  booktitle = {Proceedings of 23rd Network and Distributed System Security Symposium},
+  abstract = {
+    Mobile apps use third-party libraries for features (ads, analytics, etc.), but Android gives all permissions granted to the app to these libraries.
+    This can lead to privacy violations, especially with native code, Java reflection, and dynamic code loading.
+    FLEXDROID is a new security model and isolation mechanism, providing fine-grained, dynamic access control per library.
+    Developers can control which permissions to grant and how to react to violations (e.g., mock data, kill).
+    FLEXDROID defines a principal for each library and develops an inter-process stack inspection mechanism effective for JNI and dynamic code.
+    Evaluations show it is easy to adopt, effective, and incurs negligible overhead.
+  },
+  pdf = {flexdroid-ndss16.pdf},
+  slides = {flexdroid-ndss16-slides.pdf},
+   month = {{February}},
+   year = 2016 
+}
+
+@inproceedings{rtss15,
+  abbr = {RTSS},
+   author = {Hyosu Kim and SangJeong Lee and Wookhyun Han and Daehyeok Kim and Insik Shin},
+  title = {SounDroid: Supporting Real-Time Sound Application on Commodity Mobile Devices},
+   booktitle = {Proceedings of 36th IEEE Real-Time Systems Symposium},
+  abstract = {
+    Mobile sound applications need real-time audio request management for features like high-rate acoustic sensing.
+    Existing OSes use static configurations, lacking real-time capability for such timing needs.
+    SounDroid is a framework for real-time audio request management, based on requirement analysis and audio playback understanding.
+    It incorporates real-time audio scheduling (EDF-V and AFDS) and dispatch optimization on Android.
+    Experiments show SounDroid improves scheduling performance (up to 40%) and enables deterministic latency.
+  },
+  pdf = {soundroid-rtss15.pdf},
+   month = {{December}},
+   year = 2015 
+}
+
+@inproceedings{infocom15,
+  abbr = {INFOCOM},
+   author = {Sangki Yun and Daehyeok Kim and Xiaofan Lu and Lili Qiu},
+  title = {Optimized Layered Integrated Video Encoding},
+   booktitle = {Proceedings of 34th IEEE International Conference on Computer Communications},
+  abstract = {
+    Wireless video traffic is exploding, overloading wireless networks.
+    Multicast can reduce total traffic, but receivers are heterogeneous—especially in channel quality and antenna count.
+    We develop LIVE (Layered Integrated Video Encoding) to guarantee good performance for weaker receivers and better quality for stronger ones.
+    LIVE uses (i) layered coding for heterogeneity, (ii) optimization for per-layer transmission, and (iii) integrated modulation combining soft/hard encoding for reliability.
+    It's the first approach handling MIMO heterogeneity in wireless video multicast.
+    Extensive Matlab and USRP experiments show LIVE's effectiveness.
+  },
+  pdf = {live-infocom15.pdf},
+   month = {{April}},
+   year = 2015 
+}
+
+@inproceedings{ccs14,
+  abbr = {CCS},
+   author = {Daehee Jang and Hojoon Lee and Minsu Kim and Daehyeok Kim and Daegyeong Kim and Brent B. Kang},
+  title = {ATRA: Address Translation Redirection Attack against Hardware-based External Monitors},
+   booktitle = {Proceedings of 21st ACM Conference on Computer and Communications Security},
+  abstract = {
+    Hardware-based external kernel integrity monitors are thought trustworthy, but are challenged by the Address Translation Redirection Attack (ATRA).
+    ATRA evades monitoring by redirecting accesses to critical kernel objects outside the monitored region.
+    Despite its seriousness, address translation integrity is often assumed and exploitation considered hypothetical.
+    We detail ATRA and its two types—memory-bound and register-bound—plus practical realization and challenges.
+    Benchmarks show ATRA introduces negligible performance penalty, proving attackers could exploit it in practice.
+    We recommend future external monitors address this threat.
+  },
+  pdf = {atra-ccs14.pdf},
+   month = {{November}},
+   year = 2014 
+}
+
+@inproceedings{mobicom13,
+  abbr = {MobiCom},
+   author = {Sangki Yun and Daehyeok Kim and Lili Qiu},
+  title = {Fine-grained Spectrum Adaptation in WiFi Networks},
+   booktitle = {Proceedings of 20th ACM International Conference on Mobile Computing and Networking},
+  abstract = {
+    WiFi traffic is growing rapidly, requiring better spectrum efficiency.
+    We propose adapting spectrum per-frame.
+    Our approach (i) designs fine-grained access so sender/receiver can dynamically change spectrum per frame, (ii) uses fast/accurate spectrum detection via the IEEE 802.11 preamble, (iii) provides efficient spectrum allocation per frame considering diversity and interference.
+    It extends to joint spectrum, schedule, and AP assignment per frame.
+    A SORA prototype and simulation show practical feasibility and near-optimal results, being the first such per-frame adaptation for WiFi.
+  },
+  pdf = {fsa-mobicom13.pdf},
+   month = {{September}},
+   year = 2013 
+}
+
+@article{msthesis,
+  abbr = {MS Thesis},
+  author = {Daehyeok Kim},
+  title = {Optimal Combination of Opportunistic Routing and Network Coding for Minimizing Transmission Time},
+  journal = {MS Thesis, Pohang University of Science and Technology},
+  year = 2012,
+  month = {{February}},
+  selected = {false}
+}
+
+@inproceedings{wcnc12,
+  abbr = {WCNC},
+  author = {Daehyeok Kim and Young-Joo Suh},
+  title = {Multi-rate Combination of Opportunistic Routing and Network Coding},
+   booktitle = {Proceedings of 9th IEEE Wireless Communications and Networking Conference},
+  abstract = {
+    Wireless communication techniques like opportunistic routing and network coding exploit the wireless medium's broadcast nature.
+    Prior attempts combine these two, but none considered bit-rate selection for data transmission in multi-rate wireless networks.
+    We study the potential benefits of combining opportunistic routing, network coding, and bit-rate selection via optimization.
+    We develop a model and algorithm to find the optimal forwarding scheme for multi-rate opportunistic routing and network coding.
+    Simulations using MIT Roofnet traces show that properly considering bit-rate selection brings substantial expected transmission time benefits.
+  },
+  pdf = {netcoding-wcnc12.pdf},
+  slides = {netcoding-wcnc12-slides.pptx},
+   month = {{April}},
+   year = 2012 
+}
+
+@ARTICLE{JCSE11,
+  abbr = {JCSE},
+  author = {Daehyeok Kim and Wan-Seon Lim and Young-Joo Suh},
+  title = {Multicast Extension to Proxy Mobile IPv6 for Mobile Multicast Services},
+  journal = {Journal of Computing Science and Engineering},
+  abstract = {
+    Proxy Mobile IPv6 (PMIPv6) is proposed for mobility management in all-IP mobile networks.
+    While unicast handover is extensively studied, PMIPv6 support for multicast services remains less covered.
+    The two main approaches—MAG-based and LMA-based—cause multicast join overhead and non-optimal routing, respectively, possibly incurring high packet loss.
+    We propose a PMIPv6-based multicast protocol to ensure optimal delivery, minimizing delay and packet loss during handover.
+    Simulations show improved delay, service disruption, and loss compared to other solutions.
+  },
+  pdf = {mobileipv6multicast-jcse11.pdf},
+  volume = 5,
+  number = {4},
+   month = {{December}},
+  year = {2011}
+}
+
+@ARTICLE{reboost16,
+  abbr = {Comm. Letter},
+  author = {Kilho Lee and Daehyeok Kim and Insik Shin},
+  title = {REboost: Improving Throughput in Wireless Networks using Redundancy Elimination},
+  journal = {IEEE Communications Letters},
+  abstract = {
+    Traffic redundancy elimination (RE) boosts throughput in bandwidth-limited networks.
+    However, RE is less effective in wireless networks because TCP cannot exploit RE unless it is aware of how the underlying RE system operates.
+    REboost enables the TCP layer to be aware and improve throughput.
+    Prototype evaluations show REboost significantly outperforms prior RE systems.
+  },
+  pdf = {reboost-cl17.pdf},
+  volume = 21,
+  number = {1},
+  month = {{January}},
+  year = {2017}
+}
